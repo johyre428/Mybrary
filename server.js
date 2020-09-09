@@ -14,6 +14,7 @@ const db = mongoose.connection
 // Routes
 const indexRoutes = require('./routes/index')
 const authorRoutes = require('./routes/authors')
+const bookRoutes = require('./routes/books')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -33,5 +34,6 @@ db.once('open', () => console.log('Connected to DB'))
 
 app.use('/', indexRoutes)
 app.use('/authors', authorRoutes)
+app.use('/books', bookRoutes)
 
 app.listen(process.env.PORT || 3000)
